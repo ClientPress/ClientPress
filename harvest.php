@@ -183,4 +183,4 @@ class harvest{
 }
 
 $getClients = new harvest();
-$getClients->ShowTimeEntries('7428768', '20160201', '20161003');
+$getClients->GetClients();
