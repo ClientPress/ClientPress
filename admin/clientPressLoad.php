@@ -61,7 +61,7 @@ add_action('admin_menu', 'ClientPress_menu');
           <div class="container-fluid">
             <div class="row">
               <div class="panel panel-success col-sm-8">
-    						<h3><?php echo "Hellop $clientFName $clientLName";?></h3>
+    						<h3><?php echo "Hello $clientFName $clientLName";?></h3>
     					</div>
               <div class="panel panel-success col-sm-4">
                 <h3>Need Help Now?</h3>
