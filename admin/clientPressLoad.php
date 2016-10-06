@@ -60,10 +60,10 @@ add_action('admin_menu', 'ClientPress_menu');
           <h1>ClientPress</h1>
           <div class="container-fluid">
             <div class="row">
-              <div class="panel panel-success col-sm-8">
+              <div class="panel col-sm-8">
     						<h3><?php echo "Hello $clientFName $clientLName";?></h3>
     					</div>
-              <div class="panel panel-success col-sm-4">
+              <div class="panel col-sm-4">
                 <h3>Need Help Now?</h3>
                 <h4>(480) 555-5555</h4>
               </div>
@@ -72,7 +72,7 @@ add_action('admin_menu', 'ClientPress_menu');
           <br>
           <div class="container-fluid">
             <div class="row">
-              <div class="panel panel-warning col-sm-4">
+              <div class="panel col-sm-4">
                 <h3>Account Details</h3>
     						<p>Your account information</p>
     						<div class="list-group">
@@ -84,7 +84,7 @@ add_action('admin_menu', 'ClientPress_menu');
     						</div>
                 <button type="submit" class="btn btn-primary" id="detailEdit" name="detailEdit">Edit</button>  <button type="submit" class="btn btn-default" id="detailSave" name="detailSave">Save</button>
               </div>
-              <div class="panel panel-warning col-sm-4">
+              <div class="panel col-sm-4">
     						<h3>Retainer Hours</h3>
     						<p>Total time available this month based on your Tier Plan</p>
     						<dl>
@@ -95,7 +95,7 @@ add_action('admin_menu', 'ClientPress_menu');
     						</dl>
     						<button type="submit" class="btn btn-primary" id="retainerBreak" name="retainerBreak">View Breakdown</button>
     					</div>
-              <div class="panel panel-warning col-sm-4">
+              <div class="panel col-sm-4">
                 <h3>Submit Ticket</h3>
     						<p>Need a hand? Send us a support request</p>
                 <form>
@@ -118,7 +118,7 @@ add_action('admin_menu', 'ClientPress_menu');
           <br>
           <div class="container-fluid">
             <div class="row">
-              <div class="panel panel-danger col-sm-6">
+              <div class="panel col-sm-6">
                 <h2>Open Tickets</h2>
                 <table class="table table-condensed" id="ticketsOpen" name="ticketsOpen">
                   <thead>
@@ -149,7 +149,7 @@ add_action('admin_menu', 'ClientPress_menu');
     							<!-- End Placeholder -->
                 </table>
               </div>
-              <div class="panel panel-danger col-sm-6">
+              <div class="panel col-sm-6">
                 <h2>Resolved Tickets</h2>
                 <table class="table table-condensed" id="ticketsResolved" name="ticketsResolved">
                   <thead>
