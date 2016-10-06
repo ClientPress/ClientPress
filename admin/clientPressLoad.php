@@ -20,7 +20,150 @@ add_action('admin_menu', 'ClientPress_menu');
     function ClientPress_init(){
 
       //build lauoyt
+      ?>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="admin/js/app.js"></script>
+      <link rel="stylesheet" href="admin/css/main.css">
+      <div class="container">
+  		<h2>Dynamic Tabs</h2> 
+  		<ul class="nav nav-tabs">
+  			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+  			<li><a data-toggle="tab" href="#myclients">My Clients</a></li>
+  			<li><a data-toggle="tab" href="#addclient">Add Client</a></li>
+  			<li><a data-toggle="tab" href="#adminreports">Reports</a></li>
+  		</ul>
 
+  		<div class="tab-content">
+  			<!-- Admin landing page -->
+  			<div id="home" class="tab-pane fade in active">
+  				<h3>ADMIN</h3>
+  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  				<br>
+  				<hr>
+  				<div class="container">
+  					<h3>Help Scout</h3>
+  					<p>Enter Username and Password to launch your Help Scout dashboard</p>
+  					<form id="helpscoutLauncher" name="helpscoutLauncher">
+  						<div class="form-group">
+  							<label for="helpscoutLaunchUsr">Username:</label>
+        				<input type="text" class="form-control" id="helpscoutLaunchUsr" name="helpscoutLaunchUsr" placeholder="Enter Username">
+  						</div>
+  						<div class="form-group">
+  							<label for="helpscoutLaunchPwd">Password:</label>
+  							<input type="password" class="form-control" id="helpscoutLaunchPwd" name="helpscoutLaunchPwd" placeholder="Enter password">
+  						</div>
+  						<button type="submit" class="btn btn-success" id="helpscoutLaunchBtn" name="helpscoutLaunchBtn">Launch</button>
+  						<br>
+  						<hr>
+  					</form>
+  				</div>
+  				<div class="container">
+  					<h3>Harvest</h3>
+  					<p>Enter Username and Password to launch your Harvest dashboard</p>
+  					<form id="harvestLauncher" name="harvestLauncher">
+  						<div class="form-group">
+  							<label for="harvestLaunchUsr">Username:</label>
+        				<input type="text" class="form-control" id="harvestLaunchUsr" name="harvestLaunchUsr" placeholder="Enter Username">
+  						</div>
+  						<div class="form-group">
+  							<label for="harvestLaunchPwd">Password:</label>
+  							<input type="password" class="form-control" id="harvestLaunchPwd" name="harvestLaunchPwd" placeholder="Enter password">
+  						</div>
+  						<button type="submit" class="btn btn-success" id="harvestLaunchBtn" name="harvestLaunchBtn">Launch</button>
+  						<br>
+  						<hr>
+  					</form>
+  				</div>
+  				<div class="container">
+  					<h3>PayPal</h3>
+  					<p>Enter Username and Password to launch your PayPal dashboard</p>
+  					<form id="paypalLauncher" name="paypalLauncher">
+  						<div class="form-group">
+  							<label for="paypalLaunchUsr">Username:</label>
+        				<input type="text" class="form-control" id="paypalLaunchUsr" name="paypalLaunchUsr" placeholder="Enter Username">
+  						</div>
+  						<div class="form-group">
+  							<label for="paypalLaunchPwd">Password:</label>
+  							<input type="password" class="form-control" id="paypalLaunchPwd" name="paypalLaunchPwd" placeholder="Enter password">
+  						</div>
+  						<button type="submit" class="btn btn-success" id="paypalLaunchBtn" name="paypalLaunchBtn">Launch</button>
+  						<br>
+  						<hr>
+  					</form>
+  				</div>
+  				<div class="container">
+  					<h3>Stripe</h3>
+  					<p>Enter Username and Password to launch your Stripe dashboard</p>
+  					<form id="stripeLauncher" name="stripeLauncher">
+  						<div class="form-group">
+  							<label for="stripeLaunchUsr">Username:</label>
+        				<input type="text" class="form-control" id="stripeLaunchUsr" name="stripeLaunchUsr" placeholder="Enter Username">
+  						</div>
+  						<div class="form-group">
+  							<label for="stripeLaunchPwd">Password:</label>
+  							<input type="password" class="form-control" id="stripeLaunchPwd" name="stripeLaunchPwd" placeholder="Enter password">
+  						</div>
+  						<button type="submit" class="btn btn-success" id="stripeLaunchBtn" name="stripeLaunchBtn">Launch</button>
+  						<br>
+  						<hr>
+  					</form>
+  				</div>
+  			</div>
+  			<!-- Admin myclients page-->
+  			<div id="myclients" class="tab-pane fade">
+  				<h3>My Clients</h3>
+  				<p>Review your client list</p>
+  				<div class="container">
+  					<table class="table table-hover">
+  						<thead>
+  							<tr>
+  								<th>Name</th>
+  								<th>Email</th>
+  								<th>Phone</th>
+  								<th>Status</th>
+  							</tr>
+  						</thead>
+  						<tbody id="clientTable" name="clientTable">
+  							<tr><a href="#">
+  								<td id="clientTableName" name="clientTableName">John Doe</a></td>
+  								<td id="clientTableEmail" name="clientTableEmail">john.doe@bigjims.com</td>
+  								<td id="clientTablePhone" name="clientTablePhone">(480)555-5555</td>
+  								<td id="clientTableStatus" name="clientTableStatus">Live</td>
+  							</tr></a>
+  							<!-- Display purposes -->
+  							<tr>
+  								<td>Mary Display</td>
+  								<td>moe@plebs.com</td>
+  								<td>(480)555-5555</td>
+  								<td>Suspend</td>
+  							</tr>
+  							<tr>
+  								<td>July</td>
+  								<td>july@example.com</td>
+  								<td>(480)555-5555</td>
+  								<td>Pending</td>
+  							</tr>
+  						</tbody>
+  					</table>
+  				</div>
+
+  			</div>
+  			<!-- Admin add client page-->
+  			<div id="addclient" class="tab-pane fade">
+  				<h3>Menu 2</h3>
+  				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+  			</div>
+  			<!-- Admin reports page-->
+  			<div id="adminreports" class="tab-pane fade">
+  				<h3>Menu 3</h3>
+  				<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+  			</div>
+    	</div>
+  		</div>
+
+      <?php
 
         }
 
