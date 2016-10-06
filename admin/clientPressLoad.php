@@ -50,6 +50,8 @@ add_action('admin_menu', 'ClientPress_menu');
           $current_user = wp_get_current_user();
           $clientFName = $current_user->user_firstname;
           $clientLName = $current_user->user_lastname;
+          include( plugin_dir_path( __FILE__ ) . 'includes/helpscout.php');
+          
           ?>
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -123,16 +125,17 @@ add_action('admin_menu', 'ClientPress_menu');
                 <table class="table table-condensed" id="ticketsOpen" name="ticketsOpen">
                   <thead>
                     <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Email</th>
+                      <th>Ticket Number</th>
+                      <th>Date Created</th>
+                      <th>Summary</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody id="tickOpenItem" name="tickOpenItem">
                     <tr>
-                      <td id="tickOpenItem1" name="tickOpenItem1">John</td>
-                      <td id="tickOpenItem2" name="tickOpenItem2">Doe</td>
-                      <td id="tickOpenItem3" name="tickOpenItem3">john@example.com</td>
+                      <?php
+                      $mailboxes = new helpScout();
+                      $mailboxes->GetTicketsByClientActive(86221, 96739579)?>
                     </tr>
     								<!--- Placeholder for demonstration -->
                     <tr>

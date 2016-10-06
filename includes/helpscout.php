@@ -8,7 +8,7 @@ class helpScout{
           "Content-type: application/xml",
           "Accept: application/xml",
           "Authorization: Basic " . base64_encode($this->credentials)
-      ); 
+      );
       // DO CURL Stuff here
        $ch = curl_init($url); // URL of the call
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -76,6 +76,23 @@ class helpScout{
       }
       // GetTicketsByClient(86221, 96739579)
     }
+    function GetTicketsByClientActive($mailboxID, $customerID){
+      $url = "https://api.helpscout.net/v1/mailboxes/$mailboxID/customers/$customerID/conversations.json";
+      $this->helpScoutCurl($url);
+      $json = $this->result;
+      $messages = json_decode($json, TRUE);
+      foreach ($messages[items] as $message) {
+        if ($message[status] == 'active') {
+          ?>
+          <td id="tickOpenItem1" name="tickOpenItem1"><?php echo $message[id];?></td>
+          <td id="tickOpenItem2" name="tickOpenItem2"><?php echo $message[createdAt];?></td>
+          <td id="tickOpenItem3" name="tickOpenItem3"><?php echo $message[preview];?></td>
+          <td id="tickOpenItem4" name="tickOpenItem4"><?php echo $message[status];?></td>
+          <?php
+        }
+      }
+      // GetTicketsByClient(86221, 96739579)
+    }
   }
-  $mailboxes = new helpScout();
-  $mailboxes->GetCustomers();
+  // $mailboxes = new helpScout();
+  // $mailboxes->GetCustomers();
