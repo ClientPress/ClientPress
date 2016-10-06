@@ -52,6 +52,9 @@ add_action('admin_menu', 'ClientPress_menu');
         function ClientPressClient_init(){
 
           //Build Page
+          $current_user = wp_get_current_user();
+          $clientFName = $current_user->user_firstname;
+          $clientLName = $current_user->user_lastname;
           ?>
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -63,7 +66,7 @@ add_action('admin_menu', 'ClientPress_menu');
           <div class="container-fluid">
             <div class="row">
               <div class="panel panel-success col-sm-8">
-    						<h3>Client Page</h3>
+    						<h3><?php echo "Hellop $clientFName $clientLName";?></h3>
     					</div>
               <div class="panel panel-success col-sm-4">
                 <h3>Need Help Now?</h3>
