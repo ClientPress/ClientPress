@@ -77,5 +77,3 @@ class helpScout{
       // GetTicketsByClient(86221, 96739579)
     }
   }
-  $mailboxes = new helpScout();
-  $mailboxes->GetCustomers();

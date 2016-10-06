@@ -1,6 +1,9 @@
 <?php
 //Build out Admin UI
 add_action('admin_menu', 'ClientPress_menu');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 function ClientPress_enqueue()
 {
@@ -16,6 +19,12 @@ function ClientPress_enqueue()
     wp_enqueue_style('ClientPress_bootstrap');
 }
 
+function ClientPress_Intergrations(){
+  include( plugin_dir_path( __FILE__ ) . 'includes/harvest.php');
+  include( plugin_dir_path( __FILE__ ) . 'includes/helpscout.php');
+}
+
+ClientPress_Intergrations();
  // add_menu_page( string $page_title, string $menu_title, string $capability, string $menu_slug, callable $function = '', string $icon_url = '', int $position = null
 
     //Set Menu Settings
@@ -33,7 +42,6 @@ function ClientPress_enqueue()
     function ClientPress_init(){
 
       //build lauoyt
-
       ClientPress_enqueue();
       ?>
       <script type="text/javascript" src="admin/js/app.js"></script>
@@ -210,13 +218,14 @@ function ClientPress_enqueue()
           <script type="text/javascript" src="admin/js/app.js"></script>
           <link rel="stylesheet" href="admin/css/main.css">
           <div class="container-fluid">
+
           <h1>ClientPress</h1>
           <div class="container-fluid">
             <div class="row">
-              <div class="panel col-sm-8">
+              <div class="col-sm-8">
     						<h3><?php echo "Hello $clientFName $clientLName";?></h3>
     					</div>
-              <div class="panel col-sm-4">
+              <div class="col-sm-4">
                 <h3>Need Help Now?</h3>
                 <h4>(480) 555-5555</h4>
               </div>
@@ -225,7 +234,7 @@ function ClientPress_enqueue()
           <br>
           <div class="container-fluid">
             <div class="row">
-              <div class="panel col-sm-4">
+              <div class="col-sm-4">
                 <h3>Account Details</h3>
     						<p>Your account information</p>
     						<div class="list-group">
@@ -237,18 +246,18 @@ function ClientPress_enqueue()
     						</div>
                 <button type="submit" class="btn btn-primary" id="detailEdit" name="detailEdit">Edit</button>  <button type="submit" class="btn btn-default" id="detailSave" name="detailSave">Save</button>
               </div>
-              <div class="panel col-sm-4">
+              <div class="col-sm-4">
     						<h3>Retainer Hours</h3>
     						<p>Total time available this month based on your Tier Plan</p>
     						<dl>
     							<dt>Total Time</dt>
-    							<dd><div class="well well-lg" id="retainerTotal" name="retainerTotal">Total Time</div></dd>
+    							<dd><div class="well well-lg" id="retainerTotal" name="retainerTotal">Total Hours</div></dd>
     							<dt>Remaining Time</dt>
     							<dd><div class="well well-lg" id="retainerRemain" name="retainerRemain">Remaining Time</div></dd>
     						</dl>
     						<button type="submit" class="btn btn-primary" id="retainerBreak" name="retainerBreak">View Breakdown</button>
     					</div>
-              <div class="panel col-sm-4">
+              <div class="col-sm-4">
                 <h3>Submit Ticket</h3>
     						<p>Need a hand? Send us a support request</p>
                 <form>

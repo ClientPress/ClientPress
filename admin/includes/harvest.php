@@ -145,7 +145,7 @@ class harvest{
         //     "notes": "Some project notes go here!",
         //     "cost_budget": null,
         //     "cost_budget_include_expenses": false
-        // } 
+        // }
     }
     function ShowTimeEntries($projectID, $startDate, $endDate){
       $url = "https://$this->baseUrl.harvestapp.com/projects/$projectID/entries?from=$startDate&to=$endDate";
@@ -181,6 +181,3 @@ class harvest{
         //}
     }
 }
-
-$getClients = new harvest();
-$getClients->GetClients();
