@@ -8,7 +8,7 @@ class helpScout{
           "Content-type: application/xml",
           "Accept: application/xml",
           "Authorization: Basic " . base64_encode($this->credentials)
-      ); 
+      );
       // DO CURL Stuff here
        $ch = curl_init($url); // URL of the call
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
