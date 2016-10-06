@@ -8,3 +8,10 @@ ClientPress is a WordPres splugin that allows all of your clients to log into yo
 - Upload files
 
 and much more
+ClientPress allows for easy intergration between applications such as:
+- Google Drive
+- Dropbox
+- Harvest
+- Help Scout
+
+and more!
