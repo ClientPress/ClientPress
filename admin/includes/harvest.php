@@ -147,6 +147,7 @@ class harvest{
         //     "cost_budget_include_expenses": false
         // }
     }
+    
     function ShowTimeEntries($projectID, $startDate, $endDate){
       $url = "https://$this->baseUrl.harvestapp.com/projects/$projectID/entries?from=$startDate&to=$endDate";
       $this->harvestCurl($url);
@@ -161,7 +162,8 @@ class harvest{
         $floatHours = (float) $entryHours;
         $totalHours += $floatHours;
       }
-      echo $totalHours;
+      return $totalHours;
+      //echo $totalHours;
         // "day_entry": {
         //       "id": 367231666,
         //       "notes": "Some notes.",

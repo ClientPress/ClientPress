@@ -71,9 +71,69 @@ class helpScout{
       $this->helpScoutCurl($url);
       $json = $this->result;
       $messages = json_decode($json, TRUE);
-      foreach ($messages[items] as $message) {
-        echo "Message id: $message[id] <br />Ticket Number: $message[number]<br />Subject: $message[subject]<br />Created on: $message[createdAt]<br />Status: $message[status]<br />Message Preview: $message[preview]<br /><br /><hr />";
-      }
+      ?>
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Open Tickets</h2>
+          <table class="table table-condensed" id="ticketsOpen" name="ticketsOpen">
+            <thead>
+              <tr>
+                <th>Ticket Number</th>
+                <th>Created Date</th>
+                <th>Subject</th>
+              </tr>
+            </thead>
+            <tbody id="tickOpenItem" name="tickOpenItem">
+              <?php
+          foreach ($messages['items'] as $message) {
+            $ticketStatus = $message['status'];
+              if ($ticketStatus == 'active') {
+              ?>
+              <tr>
+                <td><?php echo $message['number']; ?></td>
+                <td><?php echo $message['createdAt']; ?></td>
+                <td><?php echo $message['subject']; ?></td>
+              </tr>
+                  <?php
+                }
+            }
+              ?>
+              </tbody>
+            </table>
+          </div>
+          <div class="container-fluid">
+          <div class="col-sm-6">
+            <h2>Resolved Tickets</h2>
+            <table class="table table-condensed" id="ticketsResolved" name="ticketsResolved">
+              <thead>
+                <tr>
+                  <th>Ticket Number</th>
+                  <th>Created Date</th>
+                  <th>Subject</th>
+                </tr>
+              </thead>
+              <tbody  id="tickResItem" name="tickResItem">
+                <?php
+            foreach ($messages['items'] as $message) {
+              $ticketStatus = $message['status'];
+                if ($ticketStatus == 'closed') {
+                ?>
+                <tr>
+                  <td><?php echo $message['number']; ?></td>
+                  <td><?php echo $message['createdAt']; ?></td>
+                  <td><?php echo $message['subject']; ?></td>
+                </tr>
+                    <?php
+                  }
+              }
+                ?>
+              </tbody>
+              <!-- End Placeholder -->
+            </table>
+          </div>
+        </div>
+      </div>
+            <?php
       // GetTicketsByClient(86221, 96739579)
     }
   }

@@ -242,7 +242,7 @@ ClientPress_Intergrations();
     							<a href="#" class="list-group-item list-group-item-default" id="detailEmail" name="detailEmail">Email Address</a>
     							<a href="#" class="list-group-item list-group-item-default" id="detailPhone" name="detailPhone">Phone</a>
     							<a href="#" class="list-group-item list-group-item-default" id="detailAccount" name="detailAccount">Account Number</a>
-    							<a href="#" class="list-group-item list-group-item-default" id="detailTier" name="detailTier">Tier Plan</a>
+    							<a href="#" class="list-group-item list-group-item-default" id="detailTier" name="detailTier">Tier Plan - 10 Hours</a>
     						</div>
                 <button type="submit" class="btn btn-primary" id="detailEdit" name="detailEdit">Edit</button>  <button type="submit" class="btn btn-default" id="detailSave" name="detailSave">Save</button>
               </div>
@@ -250,12 +250,16 @@ ClientPress_Intergrations();
     						<h3>Retainer Hours</h3>
     						<p>Total time available this month based on your Tier Plan</p>
     						<dl>
-    							<dt>Total Time</dt>
-    							<dd><div class="well well-lg" id="retainerTotal" name="retainerTotal">Total Hours</div></dd>
-    							<dt>
-hours
-                  </dt>
-    							<dd><div class="well well-lg" id="retainerRemain" name="retainerRemain">Remaining Time</div></dd>
+    							<dt>Total Hours Used This Month:</dt>
+    							<dd><div class="well well-lg" id="retainerTotal" name="retainerTotal">
+                    <?php
+                    $getHours = new harvest();
+                    $totalHours = $getHours->ShowTimeEntries(clientID, yyyymmdd, yyyymmdd);
+                    echo $totalHours;
+                      ?>
+                      </div></dd>
+                  <dt>Remaining Time</dt>
+    							<dd><div class="well well-lg" id="retainerRemain" name="retainerRemain"><?php echo 10 - $totalHours;?></div></dd>
     						</dl>
     						<button type="submit" class="btn btn-primary" id="retainerBreak" name="retainerBreak">View Breakdown</button>
     					</div>
@@ -279,74 +283,12 @@ hours
               </div>
             </div>
           </div>
-          <br>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="panel col-sm-6">
-                <h2>Open Tickets</h2>
-                <table class="table table-condensed" id="ticketsOpen" name="ticketsOpen">
-                  <thead>
-                    <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tickOpenItem" name="tickOpenItem">
-                    <tr>
-                      <td id="tickOpenItem1" name="tickOpenItem1">John</td>
-                      <td id="tickOpenItem2" name="tickOpenItem2">Doe</td>
-                      <td id="tickOpenItem3" name="tickOpenItem3">john@example.com</td>
-                    </tr>
-    								<!--- Placeholder for demonstration -->
-                    <tr>
-                      <td>Mary</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>July</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                    </tr>
-                  </tbody>
-    							<!-- End Placeholder -->
-                </table>
-              </div>
-              <div class="panel col-sm-6">
-                <h2>Resolved Tickets</h2>
-                <table class="table table-condensed" id="ticketsResolved" name="ticketsResolved">
-                  <thead>
-                    <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody  id="tickResItem" name="tickResItem">
-                    <tr>
-                      <td id="tickResItem1" name="tickResItem1">John</td>
-                      <td id="tickResItem2" name="tickResItem2">Doe</td>
-                      <td id="tickResItem3" name="tickResItem3">john@example.com</td>
-                    </tr>
-    								<!--- Placeholder for demonstration -->
-                    <tr>
-                      <td>Mary</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>July</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                    </tr>
-                  </tbody>
-    							<!-- End Placeholder -->
-                </table>
-              </div>
-            </div>
-          </div>
+          <br />
           <?php
-
+          $getActiveTickets = new helpScout();
+          $getActiveTickets->GetTicketsByClient(mailboxID, CustomerID);
+          ?>
+        </div>
+        <?php
             }
             add_action('admin_menu', 'ClientPressClient_menu');
