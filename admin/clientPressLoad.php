@@ -2,6 +2,19 @@
 //Build out Admin UI
 add_action('admin_menu', 'ClientPress_menu');
 
+function ClientPress_enqueue()
+{
+    // JS
+    wp_register_script('ClientPress_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+    wp_enqueue_script('ClientPress_bootstrap');
+
+    wp_register_script('ClientPress_jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+    wp_enqueue_script('ClientPress_jquery');
+
+    // CSS
+    wp_register_style('ClientPress_bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+    wp_enqueue_style('ClientPress_bootstrap');
+}
 
  // add_menu_page( string $page_title, string $menu_title, string $capability, string $menu_slug, callable $function = '', string $icon_url = '', int $position = null
 
@@ -20,14 +33,13 @@ add_action('admin_menu', 'ClientPress_menu');
     function ClientPress_init(){
 
       //build lauoyt
+
+      ClientPress_enqueue();
       ?>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="admin/js/app.js"></script>
       <link rel="stylesheet" href="admin/css/main.css">
       <div class="container">
-  		<h2>Dynamic Tabs</h2> 
+  		<h2>Dynamic Tabs</h2>
   		<ul class="nav nav-tabs">
   			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
   			<li><a data-toggle="tab" href="#myclients">My Clients</a></li>
@@ -193,10 +205,8 @@ add_action('admin_menu', 'ClientPress_menu');
           $current_user = wp_get_current_user();
           $clientFName = $current_user->user_firstname;
           $clientLName = $current_user->user_lastname;
+          ClientPress_enqueue();
           ?>
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <script type="text/javascript" src="admin/js/app.js"></script>
           <link rel="stylesheet" href="admin/css/main.css">
           <div class="container-fluid">
