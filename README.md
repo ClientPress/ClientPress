@@ -14,3 +14,7 @@ ClientPress allows for easy intergration between applications such as:
 - Harvest
 - Help Scout
 
+https://www.google.com/drive/
+https://www.dropbox.com/
+https://www.getharvest.com/
+https://www.helpscout.net/
