@@ -1,6 +1,5 @@
 <?php
-// Blocks direct access to plugin
-defined( 'ABSPATH' ) or die( "Access Forbidden" );
+
 
 //Build out Admin UI
 add_action('admin_menu', 'ClientPress_menu');
@@ -8,7 +7,7 @@ add_action('admin_menu', 'ClientPress_menu');
  // add_menu_page( string $page_title, string $menu_title, string $capability, string $menu_slug, callable $function = '', string $icon_url = '', int $position = null
 
     //Set Menu Settings
-    function ClientPress(){
+    function ClientPress_menu(){
             add_menu_page(
                 'ClientPress Admin',
                 'ClientPress',
