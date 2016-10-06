@@ -252,7 +252,9 @@ ClientPress_Intergrations();
     						<dl>
     							<dt>Total Time</dt>
     							<dd><div class="well well-lg" id="retainerTotal" name="retainerTotal">Total Hours</div></dd>
-    							<dt>Remaining Time</dt>
+    							<dt>
+hours
+                  </dt>
     							<dd><div class="well well-lg" id="retainerRemain" name="retainerRemain">Remaining Time</div></dd>
     						</dl>
     						<button type="submit" class="btn btn-primary" id="retainerBreak" name="retainerBreak">View Breakdown</button>
