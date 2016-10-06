@@ -20,6 +20,12 @@ add_action('admin_menu', 'ClientPress_menu');
     function ClientPress_init(){
 
       //build lauoyt
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="admin/js/app.js"></script>
+      <link rel="stylesheet" href="admin/css/main.css">
+
 
         }
 
@@ -53,7 +59,7 @@ add_action('admin_menu', 'ClientPress_menu');
           <script type="text/javascript" src="admin/js/app.js"></script>
           <link rel="stylesheet" href="admin/css/main.css">
           <div class="container-fluid">
-          <h1>ManageWP Project</h1>
+          <h1>ClientPress</h1>
           <div class="container-fluid">
             <div class="row">
               <div class="panel panel-success col-sm-8">
@@ -78,7 +84,7 @@ add_action('admin_menu', 'ClientPress_menu');
     							<a href="#" class="list-group-item list-group-item-default" id="detailAccount" name="detailAccount">Account Number</a>
     							<a href="#" class="list-group-item list-group-item-default" id="detailTier" name="detailTier">Tier Plan</a>
     						</div>
-                <button type="submit" class="btn btn-primary" id="detailUpdate" name="detailUpdate">Update</button>
+                <button type="submit" class="btn btn-primary" id="detailEdit" name="detailEdit">Edit</button>  <button type="submit" class="btn btn-default" id="detailSave" name="detailSave">Save</button>
               </div>
               <div class="panel panel-warning col-sm-4">
     						<h3>Retainer Hours</h3>
