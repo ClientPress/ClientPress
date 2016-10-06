@@ -31,4 +31,4 @@ define( 'ClientPress_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 // Blocks direct access to plugin
 defined( 'ABSPATH' ) or die( "Access Forbidden" );
-include 'admin/clientPressLoad.php';
+include( plugin_dir_path( __FILE__ ) . 'admin/clientPressLoad.php');
