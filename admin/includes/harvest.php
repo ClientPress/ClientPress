@@ -145,8 +145,9 @@ class harvest{
         //     "notes": "Some project notes go here!",
         //     "cost_budget": null,
         //     "cost_budget_include_expenses": false
-        // } 
+        // }
     }
+    
     function ShowTimeEntries($projectID, $startDate, $endDate){
       $url = "https://$this->baseUrl.harvestapp.com/projects/$projectID/entries?from=$startDate&to=$endDate";
       $this->harvestCurl($url);
@@ -160,9 +161,9 @@ class harvest{
         $entryNote = $entry->notes;
         $floatHours = (float) $entryHours;
         $totalHours += $floatHours;
-        echo "$entryHours hours were used on $entryDate The entry id is: $entryID. Here is what was done: $entryNote<br />";
       }
-      echo "Totaling: $totalHours hours<br />";
+      return $totalHours;
+      //echo $totalHours;
         // "day_entry": {
         //       "id": 367231666,
         //       "notes": "Some notes.",
@@ -181,6 +182,3 @@ class harvest{
         //}
     }
 }
-
-$getClients = new harvest();
-$getClients->GetClients();
