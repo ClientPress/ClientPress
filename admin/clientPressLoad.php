@@ -44,17 +44,14 @@ ClientPress_Intergrations();
       //build lauoyt
       ClientPress_enqueue();
       ?>
-      <script type="text/javascript" src="admin/js/app.js"></script>
-      <link rel="stylesheet" href="admin/css/main.css">
       <div class="container">
-  		<h2>Dynamic Tabs</h2>
+  		<h2>Client Press</h2>
   		<ul class="nav nav-tabs">
   			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
   			<li><a data-toggle="tab" href="#myclients">My Clients</a></li>
   			<li><a data-toggle="tab" href="#addclient">Add Client</a></li>
   			<li><a data-toggle="tab" href="#adminreports">Reports</a></li>
   		</ul>
-
   		<div class="tab-content">
   			<!-- Admin landing page -->
   			<div id="home" class="tab-pane fade in active">
@@ -172,10 +169,169 @@ ClientPress_Intergrations();
   			</div>
   			<!-- Admin add client page-->
   			<div id="addclient" class="tab-pane fade">
-  				<h3>Menu 2</h3>
-  				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-  			</div>
-  			<!-- Admin reports page-->
+  				<h3>Add Client</h3>
+          <form action="" method="POST">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="panel col-sm-4">
+                  <div class="media">
+                    <div class="media-left">
+                      <img src="bullfrog.PNG" class="media-object" style="width:220px">
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">Avatar</h4>
+                      <p>220px by 220px</p>
+                      <p>No larger than 2MB</p>
+                    </div>
+                    <h4>Drop Image Here</h4>
+                    <p>Code to drop image into WordPress goes here.</p>
+                    <button type="submit" class="btn btn-primary" id="addAvatar" name="addAvatar">Browse</button>
+                  </div>
+                </div>
+                <div class="panel col-sm-4">
+                  <h3>Details</h3>
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" name="phone">
+                  </div>
+                  <div class="form-group">
+                    <label for="fax">Fax:</label>
+                    <input type="text" class="form-control" id="fax" name="fax">
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Billing address:</label>
+                    <input type="text" class="form-control" id="address" name="address">
+                  </div>
+                </div>
+                <div class="panel col-sm-4">
+                  <h3>Client Notes</h3>
+                  <table class="table table-condensed" id="clientNotes" name="clientNotes">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Note</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>08/25/2016</td>
+                        <td>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</td>
+                      </tr>
+                      <tr>
+                        <td>08/23/2016</td>
+                        <td>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</td>
+                      </tr>
+                      <tr>
+                        <td>08/18/2016</td>
+                        <td>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br><br>
+                </div>
+              </div>
+            </div>
+
+            <!-- Start second row -->
+            <div class="container-fluid">
+              <div class="row">
+
+                <!-- Start Billing details section -->
+                <div class="panel col-sm-4">
+                  <h3>Billing Details</h3>
+                  <div class="form-group">
+                    <label for="tier">Tier:</label>
+                    <input type="text" class="form-control" id="tier" name="tier">
+                  </div>
+                  <div class="form-group">
+                    <label for="rate">Rate:</label>
+                    <input type="text" class="form-control" id="rate" name="rate">
+                  </div>
+                  <div class="form-group">
+                    <label for="purchaseOrder">Purchase Order:</label>
+                    <input type="text" class="form-control" id="purchaseOrder" name="purchaseOrder">
+                  </div>
+                  <div class="form-group">
+                    <label for="hscout">HScout:</label>
+                    <input type="text" class="form-control" id="hscout" name="hscout">
+                  </div>
+                  <div class="form-group">
+                    <label for="hsId">HS ID:</label>
+                    <input type="text" class="form-control" id="hsId" name="hsId">
+                  </div>
+                  <div class="form-group">
+                    <label for="harvest">Harvest:</label>
+                    <input type="text" class="form-control" id="harvest" name="harvest">
+                  </div>
+                  <div class="form-group">
+                    <label for="harvestId">Harvest ID:</label>
+                    <input type="text" class="form-control" id="harvestId" name="harvestId">
+                  </div>
+                </div>
+
+                <!-- Start Websites section -->
+                <div class="panel col-sm-4">
+                  <h3>Websites</h3>
+                  <table class="table table-condensed" id="addWebsite" name="addWebsite">
+                    <thead>
+                      <tr>
+                        <th>URL</th>
+                        <th>Tier</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>lordsofcobol.org</td>
+                        <td>Premium</td>
+                      </tr>
+                      <tr>
+                        <td>obamafooled.us</td>
+                        <td>Basic</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr>
+                  <div class="form-group">
+                    <label for="name">URL:</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Support Tier:</label>
+                    <input type="text" class="form-control" id="phone">
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="addWebsite" name="addWebsite">Add</button>
+                </div>
+
+                <!-- Start notes section -->
+                <div class="panel col-sm-4">
+                  <h3>Add Notes</h3>
+                  <!-- adding date manually. consider adding script to time stamp -->
+                  <div class="form-group">
+                    <label for="addNotesDate">Date:</label>
+                    <input type="text" class="form-control" id="addNotesDate" name="addNotesDate">
+                  </div>
+                  <div class="form-group">
+                    <input type="textarea" class="form-control" id="addNotesNotes" name="addNotesNotes">
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="addNotesSubmit" name="addNotesSubmit">Submit Note</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit button  -->
+            <button type="submit" class="btn btn-primary" id="addClient" name="addClient">Save</button>
+          </form>
+        </div>
+
+  			<!-- Admin reports page under construction still -->
   			<div id="adminreports" class="tab-pane fade">
   				<h3>Menu 3</h3>
   				<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
